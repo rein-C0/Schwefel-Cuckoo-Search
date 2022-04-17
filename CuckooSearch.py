@@ -14,7 +14,7 @@ def levy_flight(Lambda,lenpos):
     sigma1 = np.power((math.gamma(1 + Lambda) * np.sin((np.pi * Lambda) / 2)) \
                       / (math.gamma((1 + Lambda) / 2) * np.power(2, (Lambda - 1) / 2)), 1 / Lambda)
     sigma2 = 1
-    u = np.random.normal(0, sigma1, size=lenpos)
+    u = np.random.normal(0, np.power(sigma1,2), size=lenpos)
     v = np.random.normal(0, sigma2, size=lenpos)
     step = u / np.power(np.fabs(v), 1 / Lambda)
     return step
